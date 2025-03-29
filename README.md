@@ -40,7 +40,31 @@ Imprime os resultados do código.
 
 O problema de encontrar um caminho hamiltoniano é considerado NP-Completo. Ou seja, esse problema pode ser verificado em tempo polimonial, podendo ser reduzivel em tempo polimonial. 
 
-#### 
+#### Teorema Mestre
+
+𝑇(𝑛) = 𝑎 ⋅ 𝑇( 𝑛 / 𝑏 ) + 𝑓(𝑛)
+
+Sendo:
+    a = Numero de subproblemas na recursão
+    n/b = Tamanho de cada subproblema
+    f(n) = Esforço feito fora das chamadas recursivas
+
+No caso do método find_hamiltonian_cicle,
+
+    a = 2, dois subproblemas são gerados.
+    b = 2, o trabalho é reduzido pela metade.
+    f(n) = O(1), o custo externo não depende da entrada.
+
+Assim,
+
+p = Log2² = 1
+
+f(n) < n^p (A maior parte do trabalho está na resolução de subproblemas)
+
+T(n) = Θ(n^p) = Θ(n^1)
+
+Logo, o Teorema mestre mostra que a complexidade é de: O(n)
+
 
 fontes: https://www.geeksforgeeks.org/hamiltonian-path-cycle-in-python/
 
